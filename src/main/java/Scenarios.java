@@ -88,5 +88,11 @@ public class Scenarios {
         System.out.println("___|___      /   \\");
     }
 
+    public void nextGamePhaseDivision() {
+        System.out.println("\n");
+        System.out.println("******************************");
+        System.out.println("\n");
+
+    }
 
 }
