@@ -1,11 +1,11 @@
-public class GameDecision {
+public class OutcomeOfGame {
 
 //    fields
     private final String wrongGuess = "Wrong guess, try again";
     private String wordToGuessed;
 
 //    constructor
-    public GameDecision() {
+    public OutcomeOfGame() {
 
     }
 

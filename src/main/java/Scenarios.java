@@ -1,11 +1,9 @@
-public class Images {
+public class Scenarios {
 
-
-    public Images() {
+    public Scenarios() {
     }
 
     public void firstTry() {
-        System.out.println("Wrong guess, try again");
         System.out.println("   |");
         System.out.println("   |");
         System.out.println("   |");
@@ -17,7 +15,6 @@ public class Images {
     }
 
     public void secondTry() {
-        System.out.println("Wrong guess, try again");
         System.out.println("   ____________");
         System.out.println("   |");
         System.out.println("   |");
@@ -30,7 +27,6 @@ public class Images {
     }
 
     public void thirdTry() {
-        System.out.println("Wrong guess, try again");
         System.out.println("   ____________");
         System.out.println("   |");
         System.out.println("   |");
@@ -43,7 +39,6 @@ public class Images {
     }
 
     public void fourthTry() {
-        System.out.println("Wrong guess, try again");
         System.out.println("   ____________");
         System.out.println("   |          _|_");
         System.out.println("   |         /   \\");
@@ -56,7 +51,6 @@ public class Images {
     }
 
     public void fifthTry() {
-        System.out.println("Wrong guess, try again");
         System.out.println("   ____________");
         System.out.println("   |          _|_");
         System.out.println("   |         /   \\");
@@ -70,7 +64,6 @@ public class Images {
 
 
     public void sixthTry() {
-        System.out.println("Wrong guess, try again");
         System.out.println("   ____________");
         System.out.println("   |          _|_");
         System.out.println("   |         /   \\");
@@ -84,7 +77,6 @@ public class Images {
 
 
     public void seventhTry() {
-        System.out.println("GAME OVER!");
         System.out.println("   ____________");
         System.out.println("   |          _|_");
         System.out.println("   |         /   \\");
@@ -94,7 +86,7 @@ public class Images {
         System.out.println("   |         / | \\");
         System.out.println("   |          / \\ ");
         System.out.println("___|___      /   \\");
-        System.out.println("GAME OVER! The word was " + wordToGuessed);
     }
+
 
 }
