@@ -17,6 +17,10 @@ public class OutcomeOfGame {
     public void gameOverLost() {
         System.out.println("GAME OVER! The word was " + wordToGuessed);
     }
+
+    public void gameOverWin(){
+        System.out.println("CONGRATULATIONS! YOU WIN! " + "\uD83D\uDE00");
+    }
 //    getters and setters for wrongGuess field
 
     public String getWrongGuess() {
