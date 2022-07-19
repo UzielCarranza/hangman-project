@@ -8,6 +8,7 @@ public class Initializer {
         game.mainScreen();
         GameLogic gameLogic = new GameLogic();
         gameLogic.printRandomWord();
+        gameLogic.runner(gameLogic.userInput());
 
     }
 
