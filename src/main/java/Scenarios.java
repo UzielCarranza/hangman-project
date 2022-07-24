@@ -1,4 +1,5 @@
 public class Scenarios {
+//     scenarios for all tries
 
     public Scenarios() {
     }
@@ -107,4 +108,25 @@ public class Scenarios {
 
     }
 
+    public void runner(int counter) {
+//        check for counter specific number and based on that call a scenario
+        if (counter == 1) {
+            firstTry();
+        } else if (counter == 2) {
+            secondTry();
+        } else if (counter == 3) {
+            thirdTry();
+        } else if (counter == 4) {
+            fourthTry();
+        } else if (counter == 5) {
+            fifthTry();
+        } else if (counter == 6) {
+            sixthTry();
+        } else if (counter == 7) {
+            seventhTry();
+        } else {
+            System.out.println(" ran out of options");
+        }
+
+    }
 }
