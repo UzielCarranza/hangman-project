@@ -24,6 +24,9 @@ public class GameLogic {
     //         call an instance of OutcomeOfGame
     OutcomeOfGame outcomeOfGame = new OutcomeOfGame();
 
+    //    call an instance of scenarios
+    Scenarios scenarios = new Scenarios();
+
     //    constructor
     public GameLogic() {
     }
@@ -77,23 +80,26 @@ public class GameLogic {
             }
         }
 
+//        if there is no matched of guessed try and word to be guessed
         if (userProgress.equals(newasterisk)) {
+//            increase counter and call scenarios
             count++;
-            System.out.println(count
-            );
+            scenarios.runner(count);
+            System.out.println("\n");
+            System.out.println("That was wrong... current number of tries: " + count + "\n");
+
         } else {
             userProgress = newasterisk;
             System.out.println(userProgress);
         }
         if (userProgress.equals(wordTobeGuessed)) {
             System.out.println("Correct! You win! The word was " + wordTobeGuessed);
-        }
-        else{
+        } else {
             runner(userInput());
         }
     }
 
-//    getters and setters for userProgress
+    //    getters and setters for userProgress
     public String getUserProgress() {
         return userProgress;
     }
@@ -102,6 +108,7 @@ public class GameLogic {
         this.userProgress = userProgress;
     }
 
+    //    convert word to be guessed with asterisks
     public void initialSetUp() {
         userProgress = new String(new char[outcomeOfGame.getWordToGuessed().length()]).replace("\0", "*");
     }
