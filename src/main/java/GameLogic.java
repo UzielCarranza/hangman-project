@@ -43,6 +43,7 @@ public class GameLogic {
 
     //    method returns user input
     public String getUserInput() {
+
         System.out.println("Enter your guess");
 
 //        gets user input using the scanner object declared as a field
