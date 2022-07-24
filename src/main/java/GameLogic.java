@@ -5,18 +5,17 @@ import java.util.Scanner;
 public class GameLogic {
     //    fields
 
-    // call instance of Random object
-//    private final Random rand = new Random();
-
+    //        create array of words
+    String[] words = {"terminator"};
     //    call instance of scanner to get user input
     private final Scanner sc = new Scanner(System.in);
 
-    //    set array of words to create a random sentence
-//    private final String[] adjectives = {"charming", "cruel", "fantastic", "gentle", "huge", "perfect", "rough", "sharp", "tasty"}; // array of words
-//    private final String[] nouns = {"portugal", "potato", "queen", "rain", "rainbow", " banana", "balloon", "horse"};
-
     //    boolean to keep running app
     private boolean keepRunningApp;
+
+
+    //        initialize counter to keep track of tries
+    int count = 0;
 
     //         call an instance of OutcomeOfGame
     OutcomeOfGame outcomeOfGame = new OutcomeOfGame();
@@ -29,8 +28,11 @@ public class GameLogic {
 
     public void printRandomWord() {
 
+//        selects a random word from the Array of words
+        String word = words[(int) (Math.random() * words.length)];
+
 //        set the word to be guessed using a setter
-//        outcomeOfGame.setWordToGuessed(adjectives[rand.nextInt(adjectives.length)] + " " + nouns[rand.nextInt(nouns.length)]);
+        outcomeOfGame.setWordToGuessed(word);
 
 
     }
@@ -46,32 +48,44 @@ public class GameLogic {
 
 
     public void runner(String guess) {
-        String[] words = {"terminator"};
-//        "banana", "computer", "cow", "rain", "water"
-        String word = words[(int) (Math.random() * words.length)];
-        String asterisk = new String(new char[word.length()]).replace("\0", "*");
+
+
+//        create new string based on the word selected that replaces alphabetic characters to asterisks
+        String userProgress = new String(new char[outcomeOfGame.getWordToGuessed().length()]).replace("\0", "*");
+        String wordTobeGuessed = outcomeOfGame.getWordToGuessed();
+
+//        Start a new empty string ... will be used to add asterisks if not  matched was found with user input
+//        but will add the character that was matched with the word to be guessed
         String newasterisk = "";
-//        String asterisk = outcomeOfGame.getWordToGuessed();
-        int count = 0;
-        for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == guess.charAt(0)) {
+
+
+//        iterate over the selected word
+        for (int i = 0; i < wordTobeGuessed.length(); i++) {
+//            if a character matches user input
+            if (wordTobeGuessed.charAt(i) == guess.charAt(0)) {
+//          changed the asterisk character to the user input
                 newasterisk += guess.charAt(0);
-            } else if (asterisk.charAt(i) != '*') {
-                newasterisk += word.charAt(i);
+            }
+            //                if current character is not an asterisk
+            else if (userProgress.charAt(i) != '*') {
+//                added to the asterisks string
+                newasterisk += userProgress.charAt(i);
             } else {
+//                add an asterisk symbol to the asterisks string
                 newasterisk += "*";
             }
         }
 
-        if (asterisk.equals(newasterisk)) {
+        if (userProgress.equals(newasterisk)) {
             count++;
-            System.out.println("here ++");
+            System.out.println(count
+            );
         } else {
-            asterisk = newasterisk;
-            System.out.println(asterisk);
+            userProgress = newasterisk;
+            System.out.println(userProgress);
         }
-        if (asterisk.equals(word)) {
-            System.out.println("Correct! You win! The word was " + word);
+        if (userProgress.equals(wordTobeGuessed)) {
+            System.out.println("Correct! You win! The word was " + wordTobeGuessed);
         }
     }
 
