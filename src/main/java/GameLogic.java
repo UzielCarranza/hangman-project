@@ -17,6 +17,10 @@ public class GameLogic {
     //        initialize counter to keep track of tries
     int count = 0;
 
+
+    //        create new string based on the word selected that replaces alphabetic characters to asterisks
+    String userProgress;
+
     //         call an instance of OutcomeOfGame
     OutcomeOfGame outcomeOfGame = new OutcomeOfGame();
 
@@ -49,9 +53,6 @@ public class GameLogic {
 
     public void runner(String guess) {
 
-
-//        create new string based on the word selected that replaces alphabetic characters to asterisks
-        String userProgress = new String(new char[outcomeOfGame.getWordToGuessed().length()]).replace("\0", "*");
         String wordTobeGuessed = outcomeOfGame.getWordToGuessed();
 
 //        Start a new empty string ... will be used to add asterisks if not  matched was found with user input
@@ -89,4 +90,16 @@ public class GameLogic {
         }
     }
 
+//    getters and setters for userProgress
+    public String getUserProgress() {
+        return userProgress;
+    }
+
+    public void setUserProgress(String userProgress) {
+        this.userProgress = userProgress;
+    }
+
+    public void initialSetUp() {
+        userProgress = new String(new char[outcomeOfGame.getWordToGuessed().length()]).replace("\0", "*");
+    }
 }
