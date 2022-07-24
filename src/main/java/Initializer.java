@@ -9,7 +9,7 @@ public class Initializer {
         GameLogic gameLogic = new GameLogic();
         gameLogic.printRandomWord();
         gameLogic.initialSetUp();
-        gameLogic.runner(gameLogic.userInput());
+        gameLogic.runner(gameLogic.getUserInput());
 
     }
 

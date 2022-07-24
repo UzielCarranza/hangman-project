@@ -10,10 +10,6 @@ public class GameLogic {
     //    call instance of scanner to get user input
     private final Scanner sc = new Scanner(System.in);
 
-    //    boolean to keep running app
-    private boolean keepRunningApp;
-
-
     //        initialize counter to keep track of tries
     int count = 0;
 
@@ -46,7 +42,7 @@ public class GameLogic {
 
 
     //    method returns user input
-    public String userInput() {
+    public String getUserInput() {
         System.out.println("Enter your guess");
 
 //        gets user input using the scanner object declared as a field
@@ -56,6 +52,7 @@ public class GameLogic {
 
     public void runner(String guess) {
 
+//        get word to be guessed
         String wordTobeGuessed = outcomeOfGame.getWordToGuessed();
 
 //        Start a new empty string ... will be used to add asterisks if not  matched was found with user input
@@ -90,12 +87,13 @@ public class GameLogic {
 
         } else {
             userProgress = newasterisk;
-            System.out.println(userProgress);
+            System.out.println(" correct!!! current progress:  " + userProgress);
         }
         if (userProgress.equals(wordTobeGuessed)) {
-            System.out.println("Correct! You win! The word was " + wordTobeGuessed);
+            outcomeOfGame.gameOverWin();
         } else {
-            runner(userInput());
+//            recursion to keep asking player until word is guessed or counter reaches 8
+            runner(getUserInput());
         }
     }
 
@@ -110,6 +108,7 @@ public class GameLogic {
 
     //    convert word to be guessed with asterisks
     public void initialSetUp() {
+//        replaces word with asterisks
         userProgress = new String(new char[outcomeOfGame.getWordToGuessed().length()]).replace("\0", "*");
     }
 }
