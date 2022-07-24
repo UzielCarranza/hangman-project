@@ -125,7 +125,8 @@ public class Scenarios {
         } else if (counter == 7) {
             seventhTry();
         } else {
-            System.out.println(" ran out of options");
+            System.out.println(" ran out of tries");
+            System.exit(0);
         }
 
     }
