@@ -88,6 +88,9 @@ public class GameLogic {
         if (userProgress.equals(wordTobeGuessed)) {
             System.out.println("Correct! You win! The word was " + wordTobeGuessed);
         }
+        else{
+            runner(userInput());
+        }
     }
 
 //    getters and setters for userProgress
