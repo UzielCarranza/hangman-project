@@ -88,10 +88,13 @@ public class GameLogic {
             count++;
             scenarios.runner(count);
             System.out.println("\n");
+//            bank word of incorrect guesses
             System.out.println("That was wrong... current number of tries: " + count + "\n");
             System.out.println("---------------------------------");
             System.out.println("word bank of incorrect guesses");
+//            add the incorrect guess to the bank word
             setIncorrectGuesses(guess);
+//            get all words from the bank word
             getIncorrectGuesses();
             System.out.println("---------------------------------");
         } else {
@@ -121,12 +124,17 @@ public class GameLogic {
         userProgress = new String(new char[outcomeOfGame.getWordToGuessed().length()]).replace("\0", "*");
     }
 
+//    gets all values within the word bank by iterating
     public void getIncorrectGuesses() {
+//        values are stored with key numeric value
+//        since we dont know all the key values
+//        we iterate over the size of the List and display all of them
         for (int i = 0; i < incorrectGuesses.size(); i++) {
             System.out.println(incorrectGuesses.get(i));
         }
     }
 
+//    adds incorrect tries to the word bank
     public void setIncorrectGuesses(String incorrectGuesses) {
         this.incorrectGuesses.add(incorrectGuesses);
     }
