@@ -1,5 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
-import java.util.Random;
 import java.util.Scanner;
 
 public class GameLogic {
@@ -22,6 +23,9 @@ public class GameLogic {
 
     //    call an instance of scenarios
     Scenarios scenarios = new Scenarios();
+
+    //    keeps track of incorrect guesses;
+    List<String> incorrectGuesses = new ArrayList<>();
 
     //    constructor
     public GameLogic() {
@@ -85,7 +89,11 @@ public class GameLogic {
             scenarios.runner(count);
             System.out.println("\n");
             System.out.println("That was wrong... current number of tries: " + count + "\n");
-
+            System.out.println("---------------------------------");
+            System.out.println("word bank of incorrect guesses");
+            setIncorrectGuesses(guess);
+            getIncorrectGuesses();
+            System.out.println("---------------------------------");
         } else {
             userProgress = newasterisk;
             System.out.println(" correct!!! current progress:  " + userProgress);
@@ -111,5 +119,15 @@ public class GameLogic {
     public void initialSetUp() {
 //        replaces word with asterisks
         userProgress = new String(new char[outcomeOfGame.getWordToGuessed().length()]).replace("\0", "*");
+    }
+
+    public void getIncorrectGuesses() {
+        for (int i = 0; i < incorrectGuesses.size(); i++) {
+            System.out.println(incorrectGuesses.get(i));
+        }
+    }
+
+    public void setIncorrectGuesses(String incorrectGuesses) {
+        this.incorrectGuesses.add(incorrectGuesses);
     }
 }
