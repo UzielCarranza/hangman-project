@@ -81,32 +81,8 @@ public class GameLogic {
                 newasterisk += "*";
             }
         }
+        checkWordToBeGuessedAgainstUserInput(newasterisk, guess, wordTobeGuessed);
 
-//        if there is no matched of guessed try and word to be guessed
-        if (userProgress.equals(newasterisk)) {
-//            increase counter and call scenarios
-            count++;
-            scenarios.runner(count);
-            System.out.println("\n");
-//            bank word of incorrect guesses
-            System.out.println("That was wrong... current number of tries: " + count + "\n");
-            System.out.println("---------------------------------");
-            System.out.println("word bank of incorrect guesses");
-//            add the incorrect guess to the bank word
-            setIncorrectGuesses(guess);
-//            get all words from the bank word
-            getIncorrectGuesses();
-            System.out.println("---------------------------------");
-        } else {
-            userProgress = newasterisk;
-            System.out.println(" correct!!! current progress:  " + userProgress);
-        }
-        if (userProgress.equals(wordTobeGuessed)) {
-            outcomeOfGame.gameOverWin();
-        } else {
-//            recursion to keep asking player until word is guessed or counter reaches 8
-            runner(getUserInput());
-        }
     }
 
     //    getters and setters for userProgress
@@ -124,7 +100,7 @@ public class GameLogic {
         userProgress = new String(new char[outcomeOfGame.getWordToGuessed().length()]).replace("\0", "*");
     }
 
-//    gets all values within the word bank by iterating
+    //    gets all values within the word bank by iterating
     public void getIncorrectGuesses() {
 //        values are stored with key numeric value
 //        since we dont know all the key values
@@ -134,8 +110,38 @@ public class GameLogic {
         }
     }
 
-//    adds incorrect tries to the word bank
+    //    adds incorrect tries to the word bank
     public void setIncorrectGuesses(String incorrectGuesses) {
         this.incorrectGuesses.add(incorrectGuesses);
+    }
+
+    public void checkWordToBeGuessedAgainstUserInput(String newasterisk, String guess, String wordTobeGuessed) {
+        //        if there is no matched of guessed try and word to be guessed
+        if (userProgress.equals(newasterisk)) {
+//            increase counter and call scenarios
+            count++;
+            scenarios.runner(count);
+            System.out.println("\n");
+//            bank word of incorrect guesses
+            System.out.println("That was wrong... current number of tries: " + count + "\n");
+            System.out.println("---------------------------------");
+//            get user progress
+            System.out.println("word : " + getUserProgress());
+            System.out.println("word bank of incorrect guesses");
+//            add the incorrect guess to the bank word
+            setIncorrectGuesses(guess);
+//            get all words from the bank word
+            getIncorrectGuesses();
+            System.out.println("---------------------------------");
+        } else {
+            userProgress = newasterisk;
+            System.out.println(" correct!!! current progress:  " + userProgress);
+        }
+        if (userProgress.equals(wordTobeGuessed)) {
+            outcomeOfGame.gameOverWin();
+        } else {
+//            recursion to keep asking player until word is guessed or counter reaches 8
+            runner(getUserInput());
+        }
     }
 }
