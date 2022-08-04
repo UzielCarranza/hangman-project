@@ -137,6 +137,11 @@ public class GameLogic {
             userProgress = newasterisk;
             System.out.println(" correct!!! current progress:  " + userProgress);
         }
+        checkUserProgress(wordTobeGuessed);
+
+    }
+
+    public void checkUserProgress(String wordTobeGuessed) {
         if (userProgress.equals(wordTobeGuessed)) {
             outcomeOfGame.gameOverWin();
         } else {
