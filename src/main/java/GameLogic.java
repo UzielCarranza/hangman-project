@@ -116,6 +116,12 @@ public class GameLogic {
     }
 
     public void checkWordToBeGuessedAgainstUserInput(String newasterisk, String guess, String wordTobeGuessed) {
+        checkMatchedOfCharacters(newasterisk, guess);
+        checkUserProgress(wordTobeGuessed);
+
+    }
+
+    public void checkMatchedOfCharacters(String newasterisk, String guess) {
         //        if there is no matched of guessed try and word to be guessed
         if (userProgress.equals(newasterisk)) {
 //            increase counter and call scenarios
@@ -137,8 +143,6 @@ public class GameLogic {
             userProgress = newasterisk;
             System.out.println(" correct!!! current progress:  " + userProgress);
         }
-        checkUserProgress(wordTobeGuessed);
-
     }
 
     public void checkUserProgress(String wordTobeGuessed) {
