@@ -1,13 +1,11 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class GameLogic {
     //    fields
 
-    //        create array of words
-    String[] words = {"terminator"};
     //    call instance of scanner to get user input
     private final Scanner sc = new Scanner(System.in);
 
@@ -24,6 +22,9 @@ public class GameLogic {
     //    call an instance of scenarios
     Scenarios scenarios = new Scenarios();
 
+    //    call an instance of GenerateRandomWords
+    GenerateRandomWord generateRandomWord = new GenerateRandomWord();
+
     //    keeps track of incorrect guesses;
     List<String> incorrectGuesses = new ArrayList<>();
 
@@ -35,8 +36,15 @@ public class GameLogic {
 
     public void printRandomWord() {
 
+        try {
+            generateRandomWord.generateRandomWord();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 //        selects a random word from the Array of words
-        String word = words[(int) (Math.random() * words.length)];
+        String word = generateRandomWord.getWords().get((int) (Math.random() * generateRandomWord.getWords().size()));
+        System.out.println(word);
+
 
 //        set the word to be guessed using a setter
         outcomeOfGame.setWordToGuessed(word);
@@ -56,7 +64,6 @@ public class GameLogic {
 
 
     public void runner(String guess) {
-
 //        get word to be guessed
         String wordTobeGuessed = outcomeOfGame.getWordToGuessed();
 
@@ -154,3 +161,4 @@ public class GameLogic {
         }
     }
 }
+
