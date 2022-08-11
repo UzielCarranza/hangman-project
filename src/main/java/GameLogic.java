@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.*;
 
 public class GameLogic {
     //    fields
@@ -21,7 +20,7 @@ public class GameLogic {
 
     UserProgress userProgress = new UserProgress();
 
-    IncorrectGuesses incorrectGuesses = new IncorrectGuesses();
+    IncorrectGuessesWordBank incorrectGuessesWordBank = new IncorrectGuessesWordBank();
 
 
     //    constructor
@@ -107,9 +106,9 @@ public class GameLogic {
 
             System.out.println("word bank of incorrect guesses");
 //            add the incorrect guess to the bank word
-            incorrectGuesses.setIncorrectGuesses(guess);
+            incorrectGuessesWordBank.setIncorrectGuesses(guess);
 //            get all words from the bank word
-            incorrectGuesses.getIncorrectGuesses();
+            incorrectGuessesWordBank.getIncorrectGuesses();
             System.out.println("---------------------------------");
         } else {
             userProgress.setUserProgress(newasterisk);
