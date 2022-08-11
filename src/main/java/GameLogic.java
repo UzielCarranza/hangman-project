@@ -1,13 +1,8 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
 public class GameLogic {
     //    fields
-
-    //    call instance of scanner to get user input
-    private final Scanner sc = new Scanner(System.in);
 
     //        initialize counter to keep track of tries
     int count = 0;
@@ -16,7 +11,6 @@ public class GameLogic {
     //        create new string based on the word selected that replaces alphabetic characters to asterisks
     String userProgress;
 
-    String userInput;
     //         call an instance of OutcomeOfGame
     OutcomeOfGame outcomeOfGame = new OutcomeOfGame();
 
@@ -25,6 +19,8 @@ public class GameLogic {
 
     //    call an instance of GenerateRandomWords
     GenerateRandomWord generateRandomWord = new GenerateRandomWord();
+
+    Validation validation = new Validation();
 
     //    keeps track of incorrect guesses;
     List<String> incorrectGuesses = new ArrayList<>();
@@ -51,26 +47,6 @@ public class GameLogic {
         outcomeOfGame.setWordToGuessed(word);
 
 
-    }
-
-
-    public void checkForStringInput(){
-        System.out.println("Enter your guess");
-        String result = String.valueOf(sc.next().toLowerCase(Locale.ROOT).charAt(0));
-        if (result.matches("^[a-zA-Z]*$")){
-            setUserInput(result);
-        } else {
-            System.out.println("Enter a proper alphabetic character");
-            checkForStringInput();
-        }
-    }
-
-    public String getUserInput() {
-        return userInput;
-    }
-
-    public void setUserInput(String userInput) {
-        this.userInput = userInput;
     }
 
 
@@ -168,8 +144,8 @@ public class GameLogic {
             outcomeOfGame.gameOverWin();
         } else {
 //            recursion to keep asking player until word is guessed or counter reaches 8
-            checkForStringInput();
-            runner(getUserInput());
+            validation.checkForStringInput();
+            runner(validation.getUserInput());
         }
     }
 }

@@ -9,8 +9,9 @@ public class Initializer {
         GameLogic gameLogic = new GameLogic();
         gameLogic.printRandomWord();
         gameLogic.initialSetUp();
-        gameLogic.checkForStringInput();
-        gameLogic.runner(gameLogic.getUserInput());
+        Validation validation = new Validation();
+        validation.checkForStringInput();
+        gameLogic.runner(validation.getUserInput());
 
     }
 
