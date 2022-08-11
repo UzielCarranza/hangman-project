@@ -16,6 +16,7 @@ public class GameLogic {
     //        create new string based on the word selected that replaces alphabetic characters to asterisks
     String userProgress;
 
+    String userInput;
     //         call an instance of OutcomeOfGame
     OutcomeOfGame outcomeOfGame = new OutcomeOfGame();
 
@@ -53,13 +54,23 @@ public class GameLogic {
     }
 
 
-    //    method returns user input
-    public String getUserInput() {
-
+    public void checkForStringInput(){
         System.out.println("Enter your guess");
+        String result = String.valueOf(sc.next().toLowerCase(Locale.ROOT).charAt(0));
+        if (result.matches("^[a-zA-Z]*$")){
+            setUserInput(result);
+        } else {
+            System.out.println("Enter a proper alphabetic character");
+            checkForStringInput();
+        }
+    }
 
-//        gets user input using the scanner object declared as a field
-        return String.valueOf(sc.next().toLowerCase(Locale.ROOT).charAt(0));
+    public String getUserInput() {
+        return userInput;
+    }
+
+    public void setUserInput(String userInput) {
+        this.userInput = userInput;
     }
 
 
@@ -157,6 +168,7 @@ public class GameLogic {
             outcomeOfGame.gameOverWin();
         } else {
 //            recursion to keep asking player until word is guessed or counter reaches 8
+            checkForStringInput();
             runner(getUserInput());
         }
     }
