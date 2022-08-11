@@ -21,8 +21,8 @@ public class GameLogic {
 
     UserProgress userProgress = new UserProgress();
 
-    //    keeps track of incorrect guesses;
-    List<String> incorrectGuesses = new ArrayList<>();
+    IncorrectGuesses incorrectGuesses = new IncorrectGuesses();
+
 
     //    constructor
     public GameLogic() {
@@ -85,20 +85,6 @@ public class GameLogic {
         userProgress.setUserProgress(new String(new char[outcomeOfGame.getWordToGuessed().length()]).replace("\0", "*"));
     }
 
-    //    gets all values within the word bank by iterating
-    public void getIncorrectGuesses() {
-//        values are stored with key numeric value
-//        since we dont know all the key values
-//        we iterate over the size of the List and display all of them
-        for (int i = 0; i < incorrectGuesses.size(); i++) {
-            System.out.println(incorrectGuesses.get(i));
-        }
-    }
-
-    //    adds incorrect tries to the word bank
-    public void setIncorrectGuesses(String incorrectGuesses) {
-        this.incorrectGuesses.add(incorrectGuesses);
-    }
 
     public void checkWordToBeGuessedAgainstUserInput(String newasterisk, String guess, String wordTobeGuessed) {
         checkMatchedOfCharacters(newasterisk, guess);
@@ -121,9 +107,9 @@ public class GameLogic {
 
             System.out.println("word bank of incorrect guesses");
 //            add the incorrect guess to the bank word
-            setIncorrectGuesses(guess);
+            incorrectGuesses.setIncorrectGuesses(guess);
 //            get all words from the bank word
-            getIncorrectGuesses();
+            incorrectGuesses.getIncorrectGuesses();
             System.out.println("---------------------------------");
         } else {
             userProgress.setUserProgress(newasterisk);
