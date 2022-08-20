@@ -13,16 +13,13 @@ public class GameLogic {
     //    call an instance of scenarios
     Scenarios scenarios = new Scenarios();
 
-    //    call an instance of GenerateRandomWords
-    GenerateRandomWord generateRandomWord = new GenerateRandomWord();
-
     Validation validation = new Validation();
 
     UserProgress userProgress = new UserProgress();
 
     IncorrectGuessesWordBank incorrectGuessesWordBank = new IncorrectGuessesWordBank();
 
-    //    call an isntace of APIWprds, which is an api of words
+    //    call an instance of APIWprds, which is an api of words
     ApiWords apiWords = new ApiWords();
 
     //    constructor
