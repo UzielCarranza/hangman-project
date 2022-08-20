@@ -22,6 +22,8 @@ public class GameLogic {
 
     IncorrectGuessesWordBank incorrectGuessesWordBank = new IncorrectGuessesWordBank();
 
+    //    call an isntace of APIWprds, which is an api of words
+    ApiWords apiWords = new ApiWords();
 
     //    constructor
     public GameLogic() {
@@ -30,19 +32,14 @@ public class GameLogic {
 //    METHODS
 
     public void printRandomWord() {
-
-        try {
-            generateRandomWord.generateRandomWord();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        get random word from api
+            apiWords.setApiWords();
 //        selects a random word from the Array of words
-        String word = generateRandomWord.getWords().get((int) (Math.random() * generateRandomWord.getWords().size()));
-        System.out.println(word);
-
 
 //        set the word to be guessed using a setter
-        outcomeOfGame.setWordToGuessed(word);
+        outcomeOfGame.setWordToGuessed(apiWords.getRandomWord());
+//        for testing purposes, print the word to be guessed TODO: DELETE THIS LINE IF CODE WHEN DONE TESTING
+        System.out.println(apiWords.getRandomWord());
 
 
     }
