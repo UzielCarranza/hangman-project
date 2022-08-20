@@ -92,6 +92,15 @@ public class GameLogic {
             validation.checkForStringInput();
             runner(validation.getUserInput());
         }
+        for (String words : incorrectGuessesWordBank.incorrectGuessesWordBank) {
+            if (words.equals(guess)) {
+                System.out.println("already in your bank of incorrect words: ");
+                incorrectGuessesWordBank.getIncorrectGuesses();
+                System.out.println("---------------------------------");
+                validation.checkForStringInput();
+                runner(validation.getUserInput());
+            }
+        }
         //        if there is no matched of guessed try and word to be guessed
         if (userProgress.getUserProgress().equals(newasterisk)) {
 //            increase counter and call scenarios
