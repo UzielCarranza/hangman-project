@@ -30,7 +30,7 @@ public class GameLogic {
 
     public void printRandomWord() {
 //        get random word from api
-            apiWords.setApiWords();
+        apiWords.setApiWords();
 //        selects a random word from the Array of words
 
 //        set the word to be guessed using a setter
@@ -86,6 +86,12 @@ public class GameLogic {
     }
 
     public void checkMatchedOfCharacters(String newasterisk, String guess) {
+        if (userProgress.getUserProgress().contains(guess)) {
+            //            recursion to keep asking player until word is guessed or counter reaches 8
+            System.out.println("word already used");
+            validation.checkForStringInput();
+            runner(validation.getUserInput());
+        }
         //        if there is no matched of guessed try and word to be guessed
         if (userProgress.getUserProgress().equals(newasterisk)) {
 //            increase counter and call scenarios
