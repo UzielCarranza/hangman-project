@@ -16,7 +16,7 @@ public class ApiWords {
         try {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(rapidAPI.getUrl()))
-                    .header("X-RapidAPI-Key", rapidAPI.getRapidAPIKey())
+                    .header("X-RapidAPI-Key", rapidAPI.getKey())
                     .header("X-RapidAPI-Host", rapidAPI.getHost())
                     .method("GET", HttpRequest.BodyPublishers.noBody())
                     .build();
